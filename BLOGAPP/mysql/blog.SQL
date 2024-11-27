@@ -1,27 +1,56 @@
-CREATE DATABASE blogapp;
-USE blogapp;
-CREATE TABLE users(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
-    );
-CREATE TABLE posts(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(255) NOT NULL,
-    body TEXT NOT NULL,
-    user_id INT NOT NULL,
-     FOREIGN KEY
-    (user_id) REFERENCES users(id)
-    );
-CREATE TABLE comments(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    body TEXT NOT NULL,
-    user_id INT NOT NULL,
-    post_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (post_id)
-    REFERENCES posts(id)
-    );
-    
+CREATE DATABASE MYBLOG;
+USE MYBLOG
+CREATE TABLE USERS(
+    USERID INT AUTO_INCREMENT PRIMARY KEY,
+    USERNAME VARCHAR(255),
+    USEREMAIL VARCHAR(255),
+    AGE CHECK(AGE >= 18),
+    PASSWORD VARCHAR(255),
+    DATE TIMESTAMP
+);
+CREATE TABLE POSTS(
+    POSTID INT AUTO_INCREMENT PRIMARY KEY,
+    TITLE VARCHAR(255),
+    CATEGORY VARCHAR(255),
+    POST TEXT,
+    POSTDATE TIMESTAMP
+);
+CREATE TABLE COMMENTS(
+    COMMENTID INT AUTO_INCREMENT PRIMARY KEY,
+    COMMENT TEXT,
+    COMMENTDATE TIMESTAMP
+);
+CREATE TABLE REPLY(
+    REPLYID INT AUTO_INCREMENT PRIMARY KEY,
+    REPLIES TEXT,
+    REPLYDATE TIMESTAMP
+);
 
+INSERT INTO USERS(USERNAME,USEREMAIL,AGE,PASSWORD)
+VALUES ("daraja","daraja@gmail.com",25,1999),
+      ('mercy','mercy@gmail.com,19',19,2005),
+      ('dylan','dylan@gmail.com',20,2004);
+
+INSERT INTO POSTS(TITLE,CATEGORY,POST)
+VALUES ('kcse','education','i wish success to the 2024 kcse candidates as they begin their exams today'),
+       ('cars','industry','get the nw ford ranger cars at your nearest salesperson for only 300k dollars')
+       ('polio','health','jitokeze,let us curb polio and have a healthy nation');
+
+INSERT INTO COMMENTS(COMMENT)
+VALUES ('ME TOO.GOOD LUCK')
+       ('TOO EXPENSIVE')
+       ('NEAREST STATION PLEASE');
+
+INSERT INTO REPLIES(REPLY)
+VALUES ('GOODLUCK TO THEM')
+       ('GET YOUR OWN')
+       ('AT KESSES CENTRE');
+
+DROP TABLE REPLIES;
+
+DELETE FROM USERS
+WHERE AGE = 19;
+
+DELETE FROM MYBLOG;
+
+DROP DATABASE MYBLOG;
