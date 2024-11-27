@@ -38,17 +38,17 @@ VALUES ("daraja","daraja@gmail.com",25,1999),
 
 INSERT INTO POSTS(TITLE,CATEGORY,POST)
 VALUES ('kcse','education','i wish success to the 2024 kcse candidates as they begin their exams today'),
-       ('cars','industry','get the nw ford ranger cars at your nearest salesperson for only 300k dollars')
+       ('cars','industry','get the nw ford ranger cars at your nearest salesperson for only 300k dollars'),
        ('polio','health','jitokeze,let us curb polio and have a healthy nation');
 
 INSERT INTO COMMENTS(COMMENT)
-VALUES ('ME TOO.GOOD LUCK')
-       ('TOO EXPENSIVE')
+VALUES ('ME TOO.GOOD LUCK'),
+       ('TOO EXPENSIVE'),
        ('NEAREST STATION PLEASE');
 
 INSERT INTO REPLIES(REPLY)
-VALUES ('GOODLUCK TO THEM')
-       ('GET YOUR OWN')
+VALUES ('GOODLUCK TO THEM'),
+       ('GET YOUR OWN'),
        ('AT KESSES CENTRE');
 
 DROP TABLE REPLIES;
